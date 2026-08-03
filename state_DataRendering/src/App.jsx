@@ -1,14 +1,11 @@
 // rafce
 
-import React, { useState } from 'react'
-import ProductsData from './ProductsData'
-
-
+import React, { useState } from "react";
+import ProductsData from "./ProductsData";
 
 const App = () => {
-  
-  let [ProductData,setProductData] = useState([
-  {
+  let [ProductData, setProductData] = useState([
+    {
       id: 1,
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
       price: 109.95,
@@ -278,26 +275,24 @@ const App = () => {
         count: 145,
       },
     },
-])
+  ]);
 
-const deleteProduct = (id) => {
+  const deleteProduct = (id) => {
     let updateproduct = ProductData.filter((elem) => elem.id !== id);
     setProductData(updateproduct);
-  }
-  
+  };
+
   return (
     <div>
-      <div className='flex flex-wrap gap-4'>
-        {
-          ProductData.map((elem)=>{
-            return <ProductsData key={elem.id} product={elem} del={deleteProduct}/>
-          })
-        }  
-      </div> 
-      
+      <div className="flex flex-wrap gap-4">
+        {ProductData.map((elem) => {
+          return (
+            <ProductsData key={elem.id} product={elem} del={deleteProduct} />
+          );
+        })}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
-
+export default App;
